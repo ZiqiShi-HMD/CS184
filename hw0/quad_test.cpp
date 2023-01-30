@@ -19,7 +19,16 @@ unsigned int texture;
  */
 Vector3D mult(Matrix3x3 mat, Vector3D input) {
     /* TODO */
-    return input;
+    Vector3D output;
+    for (int i = 0; i < 3; i++) {
+        double sum = 0;
+        for (int j = 0; j < 3; j++) {
+            sum += (mat[j][i]) * (input[j]);
+        }
+        output[i] = sum;
+    }
+    Vector3D control = mat * input;
+    return output;
 }
 
 class QuadDrawer : public Renderer {
@@ -42,8 +51,8 @@ class QuadDrawer : public Renderer {
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     // set the texture wrapping/filtering options (on the currently bound texture object)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_LINEAR_MIPMAP_LINEAR);
     
     /*TODO: Change GL_NEAREST, and compare the effects of the following filters.
       The following are the following potential filter options:
@@ -53,8 +62,8 @@ class QuadDrawer : public Renderer {
       GL_NEAREST_MIPMAP_LINEAR
       GL_LINEAR_MIPMAP_LINEAR
      */
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     // load and generate the texture
     int width, height, nrChannels;
     //TODO: (optional) Change the picture here!
@@ -90,13 +99,13 @@ class QuadDrawer : public Renderer {
     glTexCoord2f(0,0);
     glVertex3f(a_trans[0], a_trans[1], a_trans[2]);
     /* TODO: change the (0,1) below to (0,.1) to zoom into the texture to see changes. */
-    glTexCoord2f(0,1);
+    glTexCoord2f(0,.1);
     glVertex3f(b_trans[0], b_trans[1], b_trans[2]);
     /* TODO: change the (1,1) below to (.1,.1) to zoom into the texture to see changes. */
-    glTexCoord2f(1,1);
+    glTexCoord2f(.1,.1);
     glVertex3f(c_trans[0], c_trans[1], c_trans[2]);
     /* TODO: change the (1,0) to (.1,0) to zoom into the texture to see changes. */
-    glTexCoord2f(1,0);
+    glTexCoord2f(.1,0);
     glVertex3f(d_trans[0], d_trans[1], d_trans[2]);
     glDeleteTextures(1, &texture);
     glDisable(GL_TEXTURE_2D);
