@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  .bottom-three {
+     margin-bottom: 6cm;
+  }
+  .bottom-half {
+     margin-bottom: 3cm;
+  }
+</style>
+<title>CS 184 project pages</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184 project summaries</h1>
+<h2 align="middle">Ziqi Shi, Buyi Geng, CS184 @ UC Berkeley 2023</h2>
+
+<br><br>
+
+<div>
+    <h1 align = "left" > Project 1 Rasterizer </h1>
+    <img src="resources/images/task 1-1.png" align="right" width="300px" />
+    <a href="resources/project 1.html"> link to page </a>
+    <p class="bottom-three"> A basic rasterization rendering pipeline that can draw out shapes stored in SVG files and draw them in colors or textures. Enables antialiasing through supersampling. We also explored how basic transformations like rotation, scale, and translation are represented by transformation matrices. </p>
+</div>
+
+<div>
+    <h1 align = "left" > Project 2 Mesh Edit </h1>
+    <img src="resources/image2/after_flip.png" align="right" width="300px" />
+    <a href="resources/project 2.html"> link to page </a>
+    <p class="bottom-three"> An interactive user interface that can render half-edge-and-face-constructed mesh models stored in dae format. Also supports smooth shading through brezier curve interpolation, as well as minimal editing actions like edge flips and splits. </p>
+</div>
+
+<div>
+    <h1 align = "left" > Project 3 Pathtracer </h1>
+    <img src="resources/images/microfacet_AuAl2.png" align="right" width="300px" />
+    <a href="resources/project 3-1.html"> link to part 1 <br></a>
+    <a href="resources/project 3-2.html"> link to part 2 </a>
+    <p class="bottom-half"> A 2 part project in which we built a fully functional renderer that can achieve photorealistic rendering for BRDF models. <br><br>
+                             In the first part, we constructed the basic functionalities for a ray-tracing renderer, which includes a ray intersection detection algorithm that tests if a generated ray intersects with a polygon and performs BRDF calculation when an intersection happens, a BVH that vastly increases the efficiency of said ray intersection detection, as well as a recursive ray generation that renders global illumination that has to bounce on objects before reaching the camera. <br><br>
+                             In the second part, we added some more complex BRDF materials to the renderer. This includes a transclucent material which not only reflects light on the outside of the object, but also allows rays to pass through after refraction; as well as a microfacet material, which we modelled as a partially reflective surface covered by randomly distributed irregularities.</p>
+</div>
+
+<div>
+    <h1 align = "left" > Project 4 Cloth simulator </h1>
+    <img src="resources/images/MirrorCloth.PNG" align="right" width="300px" />
+    <a href="resources/project 4.html"> link to page </a>
+    <p class="bottom-three"> A cloth simulator that simulates cloth with the spring-and-mass model. We implemented the kinematics of the system with Verlet intergration so that it is accurate enough but still stable. We also implemented some GLSL snippets so that albedo/bump textures and simple shaders can be rendered on the cloth we simulated. </p>
+</div>
